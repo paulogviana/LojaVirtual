@@ -25,17 +25,20 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" action="http://localhost/ProjetoWeb/controlador" method="post">
               <div class="form-group">
                 <div class="col-sm-3">
                   <label for="inputCPF" class="control-label">Informar o CURSO a ser EXCLUÍDO:</label>
                 </div>
                 <div class="col-sm-9">
-                  <input type="number" name="cdcurso" class="form-control" id="inputCPF" placeholder="CURSO" required="">
+                  <input type="number" name="cdCurso" class="form-control" id="inputCPF" placeholder="CURSO" required="true">
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
+                      <input type="hidden" name="idformulario" value="2">
+                                    <input type="hidden" name="tipoformulario" value="25">
+                              
                   <button type="submit" class="btn btn-danger">Excluír</button>
                 </div>
               </div>
@@ -48,7 +51,7 @@
       <div class="navbar navbar-fixed-bottom bgred">
         <div class="container">
           <div class="row">
-            <div class="col-sm-12 text-center" style="top:13px;color:#fff;">© ABCTreinamentos - Curso de Java 8 para Web</div>
+            <div class="col-sm-12 text-center" style="top:13px;color:#fff;">Desenvolvido por: Paulo Gustavo Barbosa Viana</div>
           </div>
         </div>
       </div>
