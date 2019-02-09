@@ -2,7 +2,9 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,6 +57,10 @@ public class controlador extends HttpServlet {
 		String nomeCurso;
 		String valorCurso;
 		String siteCurso;
+
+		Long cpfPagamento;
+		String cursoPagamento;
+		String dataPagamento;
 
 		if (idformulario == 1) // clientes
 		{
@@ -139,7 +145,7 @@ public class controlador extends HttpServlet {
 			// consultar um
 			case 22:
 				cdCurso = request.getParameter("cdCurso");
-				
+
 				out.println("<h2> CONSULTA DE CURSO");
 				out.println("<br>");
 				out.println("<h2> CDCURSO: " + cdCurso);
@@ -206,58 +212,68 @@ public class controlador extends HttpServlet {
 
 			// consultar um
 			case 32:
-				cpfMascara = request.getParameter("cpf");
+				cpfMascara = request.getParameter("cpfPagamento");
 				cpfMascara = cpfMascara.replaceAll("[.-]", "");
-				cpf = Long.parseLong(cpfMascara);
-				out.println("<h2> CONSULTA DE CLIENTE");
+				cpfPagamento = Long.parseLong(cpfMascara);
+				cursoPagamento = request.getParameter("cursoPagamento");
+
+				out.println("<h2> CONSULTA DE PAGAMENTO");
 				out.println("<br>");
-				out.println("<h2> CPF: " + cpfMascara);
+				out.println("<h2> CPF PAGAMENTO: " + cpfPagamento);
+				out.println("<br>");
+				out.println("<h2> CURSO PAGAMENTO: " + cursoPagamento);
 
 				break;
 
 			// cadastrar
 			case 33:
-				cpfMascara = request.getParameter("cpf");
-				nome = request.getParameter("nome");
-				email = request.getParameter("email");
+				cpfMascara = request.getParameter("cpfPagamento");
+				cursoPagamento = request.getParameter("cursoPagamento");
+				dataPagamento = request.getParameter("dataPagamento");
 
 				cpfMascara = cpfMascara.replaceAll("[.-]", "");
-				cpf = Long.parseLong(cpfMascara);
-				out.println("<h2> CADASTRO DE CLIENTE");
+				cpfPagamento = Long.parseLong(cpfMascara);
+				out.println("<h2> CADASTRO DE PAGAMENTOS");
 				out.println("<br>");
 				out.println("<h2> CPF: " + cpfMascara);
 				out.println("<br>");
-				out.println("<h2> NOME: " + nome);
+				out.println("<h2> CURSO: " + cursoPagamento);
 				out.println("<br>");
-				out.println("<h2> EMAIL: " + email);
+				out.println("<h2> DATA: " + dataPagamento);
 				break;
 
 			// alterar
 			case 34:
-				cpfMascara = request.getParameter("cpf");
-				nome = request.getParameter("nome");
-				email = request.getParameter("email");
+				cpfMascara = request.getParameter("cpfPagamento");
+				cursoPagamento = request.getParameter("cursoPagamento");
+				dataPagamento = request.getParameter("dataPagamento");
 
 				cpfMascara = cpfMascara.replaceAll("[.-]", "");
-				cpf = Long.parseLong(cpfMascara);
-				out.println("<h2> ALTERAÇÃO DE CLIENTE");
+				cpfPagamento = Long.parseLong(cpfMascara);
+				out.println("<h2> ALTERAÇÃO DE PAGAMENTOS");
 				out.println("<br>");
 				out.println("<h2> CPF: " + cpfMascara);
 				out.println("<br>");
-				out.println("<h2> NOME: " + nome);
+				out.println("<h2> CURSO: " + cursoPagamento);
 				out.println("<br>");
-				out.println("<h2> EMAIL: " + email);
+				out.println("<h2> DATA: " + dataPagamento);
 
+
+				
 				break;
 
 			// excluir
 			case 35:
-				cpfMascara = request.getParameter("cpf");
+				cpfMascara = request.getParameter("cpfPagamento");
+				cursoPagamento = request.getParameter("cursoPagamento");
+
 				cpfMascara = cpfMascara.replaceAll("[.-]", "");
-				cpf = Long.parseLong(cpfMascara);
-				out.println("<h2> EXCLUSÃO DE CLIENTE");
+				cpfPagamento = Long.parseLong(cpfMascara);
+				out.println("<h2>EXCLUSÃO DE PAGAMENTOS");
 				out.println("<br>");
 				out.println("<h2> CPF: " + cpfMascara);
+				out.println("<br>");
+				out.println("<h2> CURSO: " + cursoPagamento);
 
 				break;
 
